@@ -1,0 +1,15 @@
+Q:\C#\FirstProject\KaNoBu\bin\Debug\net6.0\KaNoBu.exe
+Q:\C#\FirstProject\KaNoBu\bin\Debug\net6.0\KaNoBu.deps.json
+Q:\C#\FirstProject\KaNoBu\bin\Debug\net6.0\KaNoBu.runtimeconfig.json
+Q:\C#\FirstProject\KaNoBu\bin\Debug\net6.0\KaNoBu.dll
+Q:\C#\FirstProject\KaNoBu\bin\Debug\net6.0\ref\KaNoBu.dll
+Q:\C#\FirstProject\KaNoBu\bin\Debug\net6.0\KaNoBu.pdb
+Q:\C#\FirstProject\KaNoBu\obj\Debug\net6.0\KaNoBu.csproj.AssemblyReference.cache
+Q:\C#\FirstProject\KaNoBu\obj\Debug\net6.0\KaNoBu.GeneratedMSBuildEditorConfig.editorconfig
+Q:\C#\FirstProject\KaNoBu\obj\Debug\net6.0\KaNoBu.AssemblyInfoInputs.cache
+Q:\C#\FirstProject\KaNoBu\obj\Debug\net6.0\KaNoBu.AssemblyInfo.cs
+Q:\C#\FirstProject\KaNoBu\obj\Debug\net6.0\KaNoBu.csproj.CoreCompileInputs.cache
+Q:\C#\FirstProject\KaNoBu\obj\Debug\net6.0\KaNoBu.dll
+Q:\C#\FirstProject\KaNoBu\obj\Debug\net6.0\ref\KaNoBu.dll
+Q:\C#\FirstProject\KaNoBu\obj\Debug\net6.0\KaNoBu.pdb
+Q:\C#\FirstProject\KaNoBu\obj\Debug\net6.0\KaNoBu.genruntimeconfig.cache
