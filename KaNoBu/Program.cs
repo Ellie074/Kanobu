@@ -7,94 +7,101 @@ namespace KaNoBu
 
         static void Main()
         {
-            Console.WriteLine("Hello, let's begin! Please, choice one of this options: Rock, Scissors, Paper");
-            
-            int compValue = new Random().Next(3);
-
-            string userChoice = Console.ReadLine();
-
-            //
-
-            string compChoice = "";
-            
-            switch (compValue)
+            Console.WriteLine("Hello, let's begin!");
+            do
             {
-                case 0:
-                {
-                    compChoice = Variants.Rock.ToString();
-                    break;
-                }
-                case 1:
-                {
-                    compChoice = Variants.Scissors.ToString();
-                    break;
-                }
-                case 2:
-                {
-                    compChoice = Variants.Paper.ToString();
-                    break;
-                }
-            }
-            
-            Console.WriteLine("AI Choice: "+ compChoice);
+                Console.WriteLine("Please, choice one of this options: Rock, Scissors, Paper");
 
-            //
-            
-            
-            switch (userChoice)
-            {
-                case "Rock":
+                int compValue = new Random().Next(3);
+
+                string userChoice = Console.ReadLine();
+
+                //
+
+                string compChoice = "";
+
+                switch (compValue)
                 {
-                    if (compChoice == "Rock")
+                    case 0:
                     {
-                        Console.WriteLine("Draft");
+                        compChoice = Variants.Rock.ToString();
+                        break;
                     }
-                    else if (compChoice == "Scissors")
+                    case 1:
                     {
-                        Console.WriteLine("You Win");
+                        compChoice = Variants.Scissors.ToString();
+                        break;
                     }
-                    else
+                    case 2:
                     {
-                        Console.WriteLine("You Lose");
+                        compChoice = Variants.Paper.ToString();
+                        break;
                     }
-                    break;
                 }
-                
-                case "Scissors":
+
+                Console.WriteLine("AI Choice: " + compChoice);
+
+                //
+
+
+                switch (userChoice)
                 {
-                    if (compChoice == "Rock")
+                    case "Rock":
                     {
-                        Console.WriteLine("You Lose");
+                        if (compChoice == "Rock")
+                        {
+                            Console.WriteLine("Draft");
+                        }
+                        else if (compChoice == "Scissors")
+                        {
+                            Console.WriteLine("You Win");
+                        }
+                        else
+                        {
+                            Console.WriteLine("You Lose");
+                        }
+
+                        break;
                     }
-                    else if (compChoice == "Scissors")
+
+                    case "Scissors":
                     {
-                        Console.WriteLine("Draft");
+                        if (compChoice == "Rock")
+                        {
+                            Console.WriteLine("You Lose");
+                        }
+                        else if (compChoice == "Scissors")
+                        {
+                            Console.WriteLine("Draft");
+                        }
+                        else
+                        {
+                            Console.WriteLine("You Win");
+                        }
+
+                        break;
                     }
-                    else
+
+                    case "Paper":
                     {
-                        Console.WriteLine("You Win");
+                        if (compChoice == "Rock")
+                        {
+                            Console.WriteLine("You Win");
+                        }
+                        else if (compChoice == "Scissors")
+                        {
+                            Console.WriteLine("You Lose");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Draft");
+                        }
+                        break;
                     }
-                    break;
                 }
-                
-                case "Paper":
-                {
-                    if (compChoice == "Rock")
-                    {
-                        Console.WriteLine("You Win");
-                    }
-                    else if (compChoice == "Scissors")
-                    {
-                        Console.WriteLine("You Lose");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Draft");
-                    }
-                    break;
-                }
+                Console.WriteLine("Press Enter to continue");
             }
-           
+            while (Console.ReadKey().Key == ConsoleKey.Enter);
         }
         public enum Variants { 
         Rock = 0,
