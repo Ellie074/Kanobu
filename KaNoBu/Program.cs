@@ -9,18 +9,20 @@ namespace KaNoBu
         static void Main()
         {
             int w = 0, l = 0;
+            string userChoice = "";
             Console.WriteLine("Hello, let's begin!");
             do
             {
-                Console.WriteLine("Please, choice one of this options: Rock, Scissors, Paper");
-                
-                string userChoice = Console.ReadLine();
+                while (userChoice != "Rock" && userChoice != "Scissors"&& userChoice != "Paper")
+                {
+                    Console.WriteLine("Please, choice one of this options: Rock, Scissors, Paper");
+                    userChoice = Console.ReadLine();
 
-                // while (userChoice != "Rock" || userChoice != "Scissors"|| userChoice != "Paper")
-                // {
-                //     Console.WriteLine("The entered value is incorrect. Try again");
-                //     
-                // }
+                    if (userChoice != "Rock" && userChoice != "Scissors" && userChoice != "Paper")
+                    {
+                        Console.WriteLine("The entered value is incorrect. Try again");
+                    }
+                }
 
                 //
 
