@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Net.Mime;
 
 namespace KaNoBu
 {
@@ -7,17 +8,23 @@ namespace KaNoBu
 
         static void Main()
         {
+            int w = 0, l = 0;
             Console.WriteLine("Hello, let's begin!");
             do
             {
                 Console.WriteLine("Please, choice one of this options: Rock, Scissors, Paper");
-
-                int compValue = new Random().Next(3);
-
+                
                 string userChoice = Console.ReadLine();
+
+                // while (userChoice != "Rock" || userChoice != "Scissors"|| userChoice != "Paper")
+                // {
+                //     Console.WriteLine("The entered value is incorrect. Try again");
+                //     
+                // }
 
                 //
 
+                int compValue = new Random().Next(3);
                 string compChoice = "";
 
                 switch (compValue)
@@ -55,10 +62,12 @@ namespace KaNoBu
                         else if (compChoice == "Scissors")
                         {
                             Console.WriteLine("You Win");
+                            w++;
                         }
                         else
                         {
                             Console.WriteLine("You Lose");
+                            l++;
                         }
 
                         break;
@@ -69,6 +78,7 @@ namespace KaNoBu
                         if (compChoice == "Rock")
                         {
                             Console.WriteLine("You Lose");
+                            l++;
                         }
                         else if (compChoice == "Scissors")
                         {
@@ -77,6 +87,7 @@ namespace KaNoBu
                         else
                         {
                             Console.WriteLine("You Win");
+                            w++;
                         }
 
                         break;
@@ -87,10 +98,12 @@ namespace KaNoBu
                         if (compChoice == "Rock")
                         {
                             Console.WriteLine("You Win");
+                            w++;
                         }
                         else if (compChoice == "Scissors")
                         {
                             Console.WriteLine("You Lose");
+                            l++;
                         }
                         else
                         {
@@ -99,7 +112,15 @@ namespace KaNoBu
                         break;
                     }
                 }
-                Console.WriteLine("Press Enter to continue");
+                Console.WriteLine("Win:"+w+"\n"+"Lose:"+l);
+                Console.WriteLine("Press Enter to continue or Esc to exit");
+
+                // var key = Console.ReadKey().Key;
+                //
+                // if (key == ConsoleKey.Spacebar)
+                // {
+                //     Environment.Exit(0);
+                // }
             }
             while (Console.ReadKey().Key == ConsoleKey.Enter);
         }
