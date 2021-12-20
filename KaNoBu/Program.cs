@@ -5,117 +5,140 @@ namespace KaNoBu
 {
     class Program
     {
-        static int w = 0, l=0;
+        enum Variants { 
+        Rock,
+        Scissors,
+        Paper }
 
-
-        static void Main()
+    static void Main()
+    {
+        Console.WriteLine("Hello, let's begin!");
+        do
         {
+            Console.WriteLine("Please, choice one of this options: 0.Rock, 1.Scissors, 2.Paper");
+            Console.WriteLine("Your choice must be a number!");
+
+            int userChoice = GetUserChoice();
             
-            string userChoice = "";
-            Console.WriteLine("Hello, let's begin!");
-            do
-            {
-                Console.WriteLine("Please, choice one of this options: Rock, Scissors, Paper");
-                userChoice = Console.ReadLine();
+            int compChoice = new Random().Next(3);
 
-                while (userChoice != "Rock" && userChoice != "Scissors"&& userChoice != "Paper")
-                    
-                {
-                    Console.WriteLine("The entered value is incorrect. Try again");
-                    userChoice = Console.ReadLine();
-                }
+            Variants userEnum = ConvertChoiceToEnum(userChoice);
+            Variants compEnum = ConvertChoiceToEnum(compChoice);
 
-                string compChoice = ((Variants)new Random().Next(3)).ToString();
-                
-                Console.WriteLine("AI Choice: " + compChoice);
-
-                //
-
-                
-                
-                var (win, lose) =  RoundResultPrint(userChoice, compChoice, w, l);
-                
-                Console.WriteLine("Win:"+win+"\n"+"Lose:"+lose);
-
-                Console.WriteLine("Press Enter to continue or Esc to exit");
-            }
-            while (Console.ReadKey().Key == ConsoleKey.Enter);
+            string roundResult = RoundResult(compEnum, userEnum);
+            Console.WriteLine(roundResult + " because AI choice is " + compEnum);
+            
+            Console.WriteLine("Press Enter to continue or Esc to exit");
         }
-         enum Variants { 
-         Rock,
-         Scissors,
-         Paper
-         }
+        while (Console.ReadKey().Key == ConsoleKey.Enter);
+    }
 
-         static (int w, int l) RoundResultPrint(string userChoice, string compChoice, int w, int l)
-         {
+    static Variants ConvertChoiceToEnum(int choice)
+    {
+        Variants result = Variants.Rock;
+        switch (choice)
+        {
+            case 0:
+            {
+                break;
+            }
+            case 1:
+            {
+                result = Variants.Scissors;
+                break;
+            }
+            case 2:
+            {
+                result = Variants.Paper;
+                break;
+            }
+        }
 
-             switch (userChoice)
-             {
-                 case "Rock":
-                 {
-                     if (compChoice == "Rock")
-                     {
-                         Console.WriteLine("Draft");
-                     }
-                     else if (compChoice == "Scissors")
-                     {
-                         Console.WriteLine("You Win");
-                         w++;
-                     }
-                     else
-                     {
-                         Console.WriteLine("You Lose");
-                         l++;
-                     }
+        return result;
+    }
 
-                     break;
-                 }
+    static string RoundResult(Variants compEnum, Variants userEnum)
+    {
+        string roundResult = "";
+        
+         switch (compEnum)
+                    {
+                        case Variants.Rock:
+                        {
+                            if (userEnum == Variants.Paper)
+                            {
+                                roundResult = "You Win";
+                            }
+                            else if (userEnum == Variants.Scissors)
+                            {
+                                roundResult = "You Lose";
+                            }
+                            else
+                            {
+                                roundResult = "Draft";
+                            }
+                            break;
+                        }
+                        case Variants.Scissors:
+                        {
+                            if (userEnum == Variants.Paper)
+                            {
+                                roundResult = "You Lose";
+                            }
+                            else if (userEnum == Variants.Rock)
+                            {
+                                roundResult = "You Win";
+                            }
+                            else
+                            {
+                                roundResult = "Draft";
+                            }
+                            break;
+                        }
+                        case Variants.Paper:
+                        {
+                            if (userEnum == Variants.Rock)
+                            {
+                                roundResult = "You Lose";
+                            }
+                            else if (userEnum == Variants.Scissors)
+                            {
+                                roundResult = "You Win";
+                            }
+                            else
+                            {
+                                roundResult = "Draft";
+                            }
+                            break;
+                        }
+        
+                    }
 
-                 case "Scissors":
-                 {
-                     if (compChoice == "Rock")
-                     {
-                         Console.WriteLine("You Lose");
-                         l++;
-                     }
-                     else if (compChoice == "Scissors")
-                     {
-                         Console.WriteLine("Draft");
-                     }
-                     else
-                     {
-                         Console.WriteLine("You Win");
-                         w++;
-                     }
-
-                     break;
-                 }
-
-                 case "Paper":
-                 {
-                     if (compChoice == "Rock")
-                     {
-                         Console.WriteLine("You Win");
-                         w++;
-                     }
-                     else if (compChoice == "Scissors")
-                     {
-                         Console.WriteLine("You Lose");
-                         l++;
-                     }
-                     else
-                     {
-                         Console.WriteLine("Draft");
-                     }
-
-                     break;
-                 }
-             }
-
-             return (w, l);
-         }
-
-
+         return roundResult;
+    }
+    
+    static int GetUserChoice() 
+    {
+        int result;
+        do {
+            string userInput = Console.ReadLine();
+            if(Int32.TryParse(userInput, out result)) 
+            {
+                if (result  == 0 || result == 1 || result == 2)
+                {
+                    return result;
+                }
+                else
+                {
+                    Console.WriteLine("The entered value is incorrect. Your choice must be a 0.Rock, 1.Scissors or 2.Paper");
+                }
+            }
+            else 
+            {
+                Console.WriteLine("The entered value is incorrect. Your choice must be a number!");
+            }
+        } 
+        while(true);
+    }
     } 
 }
