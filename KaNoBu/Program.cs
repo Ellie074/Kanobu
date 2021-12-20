@@ -7,85 +7,55 @@ namespace KaNoBu
 {
     class Program
     {
-        enum Variants 
-        { 
-            Rock,
-            Scissors,
-            Paper
-        }
-
-        enum Result
+        static void Main()
         {
-            Win,
-            Lose,
-            Draft
-        }
-
-    static void Main()
-    {
-        //Variants variants = (Variants) Enum.Parse(typeof(Variants), Console.ReadLine());
-        Console.WriteLine("Hello, let's begin!");
-        var gameIsPlaying = true;
-        do
-        {
-            try
-            { 
-                Console.WriteLine("Please, choice one of this options: 0.Rock, 1.Scissors, 2.Paper");
-                Variants userChoice = GetUserChoice(Console.ReadLine());
-                
-                Variants compChoice = (Variants) new Random().Next(3);
-
-
-
-                Result roundResult = RoundResult(compChoice, userChoice);
-                Console.WriteLine(roundResult + " because AI choice is " + compChoice);
-                
-                Console.WriteLine("Press Enter to continue or Esc to exit");
-                gameIsPlaying = Console.ReadKey().Key == ConsoleKey.Enter;
-            }
-                
-            catch (Exception e)
+            Console.WriteLine("Hello, let's begin!");
+            var gameIsPlaying = true;
+            do
             {
-                Console.WriteLine(e.Message);
+                try
+                {
+                    Console.WriteLine("Please, choice one of this options: 0.Rock, 1.Scissors, 2.Paper");
+
+                    Enum.Variants userChoice = GetUserChoice(Console.ReadLine());
+                    Enum.Variants compChoice = (Enum.Variants) new Random().Next(3);
+                    Enum.Result roundResult = RoundResult(compChoice, userChoice);
+                    Console.WriteLine(roundResult + " because AI choice is " + compChoice);
+
+                    Console.WriteLine("Press Enter to continue or Esc to exit");
+                    gameIsPlaying = Console.ReadKey().Key == ConsoleKey.Enter;
+                }
+
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+            } while (gameIsPlaying);
+        }
+
+        static Enum.Result RoundResult(Enum.Variants compChoice, Enum.Variants userChoice)
+        {
+            if (compChoice == userChoice)
+            {
+                return Enum.Result.Draft;
             }
-        }
-        while (gameIsPlaying);
-    }
 
-    static Result RoundResult(Variants compChoice, Variants userChoice)
-    {
-        Result roundResult;
-
-        if (compChoice == userChoice)
-        {
-            roundResult = Result.Draft;
-        }
-        else if (compChoice == Variants.Paper && userChoice == Variants.Scissors ||
-                 compChoice == Variants.Scissors && userChoice == Variants.Rock ||
-                 compChoice == Variants.Rock && userChoice == Variants.Paper)
-        {
-            roundResult = Result.Win;
+            if (compChoice == Enum.Variants.Paper && userChoice == Enum.Variants.Scissors ||
+                compChoice == Enum.Variants.Scissors && userChoice == Enum.Variants.Rock ||
+                compChoice == Enum.Variants.Rock && userChoice == Enum.Variants.Paper)
+            {
+                return Enum.Result.Win;
+            }
+            return Enum.Result.Lose;
         }
 
-        else
+        static Enum.Variants GetUserChoice(string userInput)
         {
-            roundResult = Result.Lose;
-        }
-        return roundResult;
-    }
-
-    static Variants GetUserChoice(string userInput)
-    {
-        if (Variants.TryParse(userInput, out Variants result))
-        {
-            if (result == Variants.Rock || result == Variants.Paper || result == Variants.Scissors)
+            if (Enum.Variants.TryParse(userInput, out Enum.Variants result))
             {
                 return result;
             }
+            throw new Exception("The entered value is incorrect.");
         }
-        throw new Exception("The entered value is incorrect.");
     }
-
-
-    }
-    }
+}
