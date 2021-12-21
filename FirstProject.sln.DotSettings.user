@@ -1,0 +1,10 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=421c744a_002Dc134_002D421c_002D801f_002Dee8cf93c5d70/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="RoundResult_Draft" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Or&gt;&#xD;
+    &lt;ProjectFile&gt;CFEEF95E-731A-473F-953A-0124B45DAF63/f:Round_Result_Tests.cs&lt;/ProjectFile&gt;&#xD;
+    &lt;TestAncestor&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::CFEEF95E-731A-473F-953A-0124B45DAF63::net6.0::UnitTests.GetUserChoiceTests.GetUserChoice_Input_Is_Null&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::CFEEF95E-731A-473F-953A-0124B45DAF63::net6.0::UnitTests.GetUserChoiceTests.GetUserChoice_User_Input_Is_Correct&lt;/TestId&gt;&#xD;
+    &lt;/TestAncestor&gt;&#xD;
+  &lt;/Or&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

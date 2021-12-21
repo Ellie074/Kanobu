@@ -5,7 +5,7 @@ using System.Net.Mime;
 
 namespace KaNoBu
 {
-    class Program
+    public static class Program
     {
         static void Main()
         {
@@ -33,7 +33,7 @@ namespace KaNoBu
             } while (gameIsPlaying);
         }
 
-        static Enum.Result RoundResult(Enum.Variants compChoice, Enum.Variants userChoice)
+        public static Enum.Result RoundResult(Enum.Variants compChoice, Enum.Variants userChoice)
         {
             if (compChoice == userChoice)
             {
@@ -49,7 +49,7 @@ namespace KaNoBu
             return Enum.Result.Lose;
         }
 
-        static Enum.Variants GetUserChoice(string userInput)
+        public static Enum.Variants GetUserChoice(string userInput)
         {
             if (Enum.Variants.TryParse(userInput, out Enum.Variants result))
             {

@@ -1,6 +1,6 @@
 ﻿namespace KaNoBu;
 
-public class Enum
+public static class Enum
 {
     public enum Variants
     {
